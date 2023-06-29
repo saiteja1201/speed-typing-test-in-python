@@ -1,0 +1,32 @@
+import time
+
+def get_words():
+    # Define a list of words for the user to type
+    words = ['python', 'programming', 'language', 'computer', 'keyboard', 'speed', 'accuracy', 'practice', 'typing', 'skill']
+    return words
+
+def run_test(words):
+    # Display each word and measure the user's typing speed and accuracy
+    correct = 0
+    start_time = time.time()
+    for word in words:
+        user_word = input(word + ": ")
+        if user_word == word:
+            correct += 1
+    end_time = time.time()
+    time_taken = end_time - start_time
+    accuracy = (correct / len(words)) * 100
+    speed = len(words) / time_taken
+    print(f"Time taken: {round(time_taken, 2)} seconds")
+    print(f"Accuracy: {round(accuracy, 2)}%")
+    print(f"Speed: {round(speed, 2)} words per second")
+
+def main():
+    words = get_words()
+    print("Welcome to the Speed Typing Test!")
+    print("You will be given 10 words to type as quickly and accurately as possible.")
+    input("Press enter to start the test...")
+    run_test(words)
+
+if __name__ == '__main__':
+    main()
